@@ -1,0 +1,106 @@
+---
+title: "Cryptocurrencies-Where to Invest?"
+author: "Arti Mahaldar"
+date: "October 31st 2021"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+```
+
+
+# Introduction
+
+Cryptocurrencies have become a staple in our modern society. They are growing in popularity and value every day, making an impact on the world in ways that are more and more permanent. 
+Crypto Investors are wondering what is the correct portfolio mix for cryptocurriences and we will try to explore what is the right percentage of crypto should be in one’s investment portfolio.
+
+# Research Question
+
+1. Which cryptocurrencies are best for investing in the current time.
+2. What mix of cryptocurrency in portfolio can yeild hight return.
+3. Are cryptocurrency subject to specultation risk?
+4. Are cryptocurrencies good for long term investment?
+5. Can bundling cryptocurrencies be bundled like ETFs to reduce risk?
+
+# Approach
+
+1. Analyze adoption of cryptocurrency among retail investors
+2. Analyze trading volume trends for Cryptocurrencies.
+3. Analyze and compare the volitility of Cryptocurrencies.
+4. Analyze Adoption on cryptocurrencies by institutions.
+5. Identify investment strategies and portfolio mix of Cryptocurrencies.
+
+# Methodology
+1. Analyze adoption of cryptocurrency among retail investors
+2. Analyze trading volume trends for Cryptocurrencies.
+3. Analyze and compare the volitility of Cryptocurrencies.
+4. Analyze Adoption on cryptocurrencies by institutions.
+5. Identify investment strategies and portfolio mix of Cryptocurrencies.
+
+
+# How approach addresses the problem
+
+* Market Valuation Analysis:
+  + Market valuation of use case vs current adoption can determine future growth potential
+  + Gold and Real Estate appreciation prediction will provide comparison to  
+* Volatility factor:
+  + Institutional adoption data will provide stability data around cryptocurrency to under 
+  + Regional favored laws for cryptocurrency
+* Investor acceptability:
+  + User and market volume provide indicators for future stability
+* Portfolio Mix:
+  + This will provide the minimum investment strategy in cryptocurrency 
+  
+# Data
+
+1.Market capitalization data for top Cryptocurrencies
+
+2.Institutional investment data in top Cryptocurrencies 
+
+3.User base of Cryptocurrencies 
+
+# Required Packages
+
+* Treemap
+* Dplyr
+* Tidyr
+* Shiny
+* Plotly
+* tidyquant
+
+# Plots and Table Needs
+
+Treemap for Market capitalization
+Barcharts for Risk-factor pointing of top crypto
+Table for data staging, processing and analysis
+
+# Next Steps
+
+* Get the dataset
+* Transform the data
+* Analyze the data 
+* Correlation between different dataset.
+* Data visualization
+
+
+
+
+```{r cars}
+
+
+```
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## References
+install.packages("knitr")
+
