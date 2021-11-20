@@ -1,0 +1,98 @@
+---
+title: "Final Project Step3"
+author: "Mahaldar Arti"
+date: "11/15/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+#install.packages("readxl")
+library("readxl")
+
+#the excel sheet below represent Crypto Current Market Cap Data
+
+cryptodata <- read_excel('C:/Users/Sandeep Raina/Documents/dsc520/data/Cryptocurrency.xlsx')
+
+#here is the structure of the data
+
+summary(cryptodata)
+```
+```{r cars1}
+#The problem statement addressed. 
+
+#This data set shows the MarketCap for various Crypto Currencies, date wise High low and Open and close.
+#This data can help us understand how each curries has changed in last few years and how the market cap has been for each of them.
+#That can help us anlayze how volatile each one of them is and answer few research question:
+#Which cryptocurrencies are best for investing in the current time.
+#What mix of cryptocurrency in portfolio can yeild hight return.
+#Are cryptocurrency subject to specultation risk?
+str(cryptodata)
+#How you addressed this problem statement
+#First data needs to be cleaned 
+#Check for structural errors  - we’ll evaluate the data frame for structural errors. These include entry errors such as faulty data types, non-unique ID numbers, mislabeled variables, and string inconsistencies. 
+#If there are more structural pitfalls in your own dataset than the ones covered below, be sure to include additional steps in your data cleaning to address the idiosyncrasies.
+
+#install.packages("dplyr")
+library(dplyr)
+cryptodata <- cryptodata %>% rename(CryptoCurrencyname = Currencyname)
+
+#Examine if datatypes are faulty
+typeof(cryptodata$MarketCap)
+#Non-unique ID numbers - In this dataset uniqueness is not a problem
+
+#Check for data irregularities, like invalid values and outliers. 
+
+summary(cryptodata)
+#Data look ok
+
+#Decide how to deal with missing values
+
+sum(is.na(cryptodata))
+#percent missing values per variable
+apply(cryptodata, 2, function(col)sum(is.na(col))/length(col))
+#identifying the rows with NAs
+cryptodata_NA <- rownames(cryptodata)[apply(cryptodata, 2, anyNA)]
+
+summary(cryptodata_NA)
+#removing all observations with NAs
+cryptodata_clean <- cryptodata %>% na.omit()
+
+#Clean Data Set
+summary(cryptodata_clean)
+head(cryptodata_clean)
+#max(currencydata_clean$MarketCap)
+
+
+#install.packages("matrixStats")
+library(matrixStats)
+#currencydata_clean %>% rowwise() %>% mutate(Maximum_price = max(c(currencydata_clean$MarketCap)))
+
+##Summarize how you addressed this problem statement (the data used and the methodology employed, including a recommendation for a model that could be implemented). 
+
+#What are different ways you could look at this data to answer the questions you want to answer?
+
+#There are various steps followed below to uncover the data 
+
+#Discuss how you plan to uncover new information in the data that is not self-evident.
+
+#install.packages("ggplot2")
+library(ggplot2)
+
+ggplot(data = cryptodata_clean, aes(x=CryptoCurrencyname,y=Volume)) + geom_boxplot()
+
+
+
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
